@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
   socket.on("clickedTop", () => {
     counter++;
     if (counter === 200) {
-      topScore++;
+      topScore += 10;
       counter = 0;
       io.emit("won", "top");
     }
@@ -28,7 +28,7 @@ io.on("connection", (socket) => {
   socket.on("clickedBottom", () => {
     counter--;
     if (counter === -200) {
-      bottomScore++;
+      bottomScore += 10;
       counter = 0;
       io.emit("won", "bottom");
     }
