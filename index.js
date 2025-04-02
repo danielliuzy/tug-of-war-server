@@ -17,18 +17,18 @@ io.on("connection", (socket) => {
   // TODO: send scores back to client
   socket.emit("state", { topScore, bottomScore, counter });
   socket.on("clickedTop", () => {
-    counter++;
+    counter += 10;
     if (counter === 200) {
-      topScore += 10;
+      topScore++;
       counter = 0;
       io.emit("won", "top");
     }
     io.emit("state", { topScore, bottomScore, counter });
   });
   socket.on("clickedBottom", () => {
-    counter--;
+    counter -= 10;
     if (counter === -200) {
-      bottomScore += 10;
+      bottomScore++;
       counter = 0;
       io.emit("won", "bottom");
     }
