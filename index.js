@@ -14,7 +14,6 @@ let bottomScore = 0;
 let counter = 50;
 
 io.on("connection", (socket) => {
-  console.log("connected");
   // TODO: send scores back to client
   socket.emit("state", { topScore, bottomScore, counter });
   socket.on("clickedTop", () => {
